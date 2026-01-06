@@ -7,9 +7,8 @@ pipeline {
                 bat '''
                 python --version
                 python -m venv venv
-                . venv/bin/activate
-                pip install --upgrade pip
-                pip install -r requirements.txt
+                venv\\Scripts\\python -m pip install --upgrade pip
+                venv\\Scripts\\pip install -r requirements.txt
                 '''
             }
         }
@@ -17,8 +16,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat '''
-                . venv/bin/activate
-                pytest
+                venv\\Scripts\\pytest
                 '''
             }
         }
